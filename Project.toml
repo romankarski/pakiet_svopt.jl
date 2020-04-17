@@ -1,0 +1,9 @@
+name = "svopt"
+uuid = "7b3125b0-bfb4-4a6c-9e8c-733543253128"
+authors = ["romankarski.1 <karski.roman@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+OhMyREPL = "5fb14364-9ced-5910-84b2-373655c76a03"
+Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"

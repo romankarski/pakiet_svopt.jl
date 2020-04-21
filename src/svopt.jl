@@ -1,9 +1,31 @@
 module svopt
 
-"Function returns squared argument summed with 3"
+"Newton Raphson method"
 
-my_fun(x) = x^2 + 3;
+function NR_fun(f, fp, x0; ϵ=1e-5, maxiter=1e6)
+           x_new, x_old = x0, Inf
+           f_new, f_old = f(x_new), Inf
 
-export my_fun;
+           i = 0
+
+           while i <= maxiter && abs(x_new-x_old) >= ϵ && abs(f_new-f_old) >= ϵ
+               x_pocket = x_new - f(x_new)/fp(x_new)
+               x_new, x_old = x_pocket, x_new
+               f_new, f_old = f(x_new), f_new
+               i += 1
+
+           end
+
+           if i >= maxiter
+               error("Function itered over ",maxiter," times.")
+           else
+               return x_new, i
+           end
+	end
+
+
+
+
+export NR_fun;
 
 end # module

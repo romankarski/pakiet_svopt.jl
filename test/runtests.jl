@@ -1,6 +1,9 @@
 using svopt, Test
 
-@test my_fun(2) == 7
-@test my_fun(4) == 19
-@test my_fun(0) == 3
-@test my_fun(10) == 103
+@testset "NR_testing" begin
+	f, fp, x = x -> x^3 - 5x + 1, x -> 3x^2 - 5, 0
+	@test NR_fun(f, fp, x) == (0.20163967572339103, 3)
+	
+	f, fp, x = x -> x^2 + x + 1, x -> 2x + 1, 0
+	@test NR_fun(f, fp, x) == (-1.0, 1)
+end
